@@ -10,7 +10,7 @@ class DisplayActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_display)
-        title = "Chet the Cat"
+
 
         val image = findViewById<ImageView>(R.id.imageView)
         val text = findViewById<TextView>(R.id.textView)
@@ -23,6 +23,7 @@ class DisplayActivity : AppCompatActivity() {
         if (id != null) {
             image.setImageResource(id)
         }
+        title = message
     }
 
     override fun onStart() {

@@ -14,11 +14,11 @@ class ImageAdapter (_items : Array<ImageObject>, _ocl : View.OnClickListener) : 
 
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(ImageView(parent.context).apply { layoutParams = ViewGroup.LayoutParams(300, 300) }, ocl)
+        return ViewHolder(ImageView(parent.context).apply { layoutParams = ViewGroup.LayoutParams(400, 500) }, ocl)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.imageView.setImageResource(items[position].resourceId)
+        holder.imageView.setImageResource(items[position].id)
     }
 
     override fun getItemCount(): Int {

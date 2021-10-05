@@ -1,3 +1,5 @@
 package edu.temple.imageviewerappextended
 
-data class ImageObject(val desc: String, val resourceId: Int)
+import java.io.Serializable
+
+data class ImageObject(val desc: String, val id: Int) :Serializable

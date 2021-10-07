@@ -4,4 +4,16 @@
     <string name="title">Chet il gatto</string>
     <string name="welcome">Seleziona una foto</string>
 
+    <string-array name="description">
+        <item>Sempre a guarda</item>
+        <item>Tempo di coccole!</item>
+        <item>Ora di Cena</item>
+        <item>Nascondino</item>
+        <item>Giorno del Bucato</item>
+        <item>Gira Intorno</item>
+        <item>Contempla la vita</item>
+        <item>Fa un Pisolino</item>
+        <item>In un Tunnel</item>
+        <item>Lavora sodo</item>
+    </string-array>
 </resources>

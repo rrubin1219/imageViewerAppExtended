@@ -13,35 +13,37 @@ class SelectionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_selection)
-        title = "Chet the Cat"
+        title = resources.getString(R.string.title)
 
         val items = getImages()
         val recycler = findViewById<RecyclerView>(R.id.recyclerView)
 
         recycler.layoutManager = GridLayoutManager(this, 3)
         val displayActivityIntent = Intent(this, DisplayActivity::class.java)
+        val array: Array<String> = resources.getStringArray(R.array.description)
 
         val onClickListener = View.OnClickListener {
             val itemPosition = recycler.getChildAdapterPosition(it)
 
             displayActivityIntent.putExtra("ID", items[itemPosition].id)
-            displayActivityIntent.putExtra("description", items[itemPosition].desc)
+            displayActivityIntent.putExtra("description", array[itemPosition])
 
             startActivity(displayActivityIntent)
         }
+
         recycler.adapter = ImageAdapter(items, onClickListener)
     }
     private fun getImages(): Array<ImageObject>{
-        return arrayOf(ImageObject("Always Watching", R.drawable.stalker),
-            ImageObject("Feeling Cuddly", R.drawable.cuddles),
-            ImageObject("Making Dinner", R.drawable.food_prep),
-            ImageObject("Hide n' Seek", R.drawable.hide_n_seek),
-            ImageObject("Laundry Day", R.drawable.laundry),
-            ImageObject("Spinning Around", R.drawable.microwave),
-            ImageObject("Contemplating Life", R.drawable.shocked),
-            ImageObject("Nap Time", R.drawable.sleepy),
-            ImageObject("Just Tunnel on Through", R.drawable.tunnel),
-            ImageObject("Hard at Work", R.drawable.worker),
+        return arrayOf(ImageObject(R.drawable.stalker),
+            ImageObject(R.drawable.cuddles),
+            ImageObject(R.drawable.food_prep),
+            ImageObject(R.drawable.hide_n_seek),
+            ImageObject( R.drawable.laundry),
+            ImageObject(R.drawable.microwave),
+            ImageObject(R.drawable.shocked),
+            ImageObject( R.drawable.sleepy),
+            ImageObject(R.drawable.tunnel),
+            ImageObject( R.drawable.worker),
         )
     }
 

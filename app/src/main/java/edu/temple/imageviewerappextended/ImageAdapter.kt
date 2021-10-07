@@ -14,7 +14,7 @@ class ImageAdapter (_items : Array<ImageObject>, _ocl : View.OnClickListener) : 
 
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(ImageView(parent.context).apply { layoutParams = ViewGroup.LayoutParams(400, 500) }, ocl)
+        return ViewHolder(ImageView(parent.context).apply { layoutParams = ViewGroup.LayoutParams(350, 450) }, ocl)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

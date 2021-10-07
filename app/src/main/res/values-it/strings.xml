@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name = "app_name">Chet il gatto</string>
+    <string name="title">Chet il gatto</string>
+    <string name="welcome">Seleziona una foto</string>
+
+</resources>

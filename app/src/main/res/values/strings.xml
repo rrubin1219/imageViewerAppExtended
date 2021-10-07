@@ -1,3 +1,18 @@
 <resources>
-    <string name="app_name">imageViewerAppExtended</string>
+    <string name="app_name">Chet the Cat</string>
+    <string name="title" translatable="false">Chet the Cat</string>
+    <string name="welcome" translatable="false">Click on an image</string>
+
+    <string-array name="description">
+        <item>Always Watching</item>
+        <item>Feeling Cuddly</item>
+        <item>Dinner Time</item>
+        <item>Hide and Seek</item>
+        <item>Laundry Day</item>
+        <item>Spinning Around</item>
+        <item>Contemplating Life</item>
+        <item>Nap Time</item>
+        <item>In a Tunnel</item>
+        <item>Hard at Work</item>
+    </string-array>
 </resources>

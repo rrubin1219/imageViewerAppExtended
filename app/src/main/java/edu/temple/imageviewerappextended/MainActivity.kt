@@ -1,7 +1,6 @@
 package edu.temple.imageviewerappextended
 
 import ImageAdapter
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,26 +8,26 @@ import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class SelectionActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_selection)
+        setContentView(R.layout.activity_main)
         title = resources.getString(R.string.title)
 
         val items = getImages()
         val recycler = findViewById<RecyclerView>(R.id.recyclerView)
 
         recycler.layoutManager = GridLayoutManager(this, 3)
-        val displayActivityIntent = Intent(this, DisplayActivity::class.java)
+        //val displayActivityIntent = Intent(this, DisplayActivity::class.java)
         val array: Array<String> = resources.getStringArray(R.array.description)
 
         val onClickListener = View.OnClickListener {
             val itemPosition = recycler.getChildAdapterPosition(it)
 
-            displayActivityIntent.putExtra("ID", items[itemPosition].id)
-            displayActivityIntent.putExtra("description", array[itemPosition])
+            //displayActivityIntent.putExtra("ID", items[itemPosition].id)
+            //displayActivityIntent.putExtra("description", array[itemPosition])
 
-            startActivity(displayActivityIntent)
+            //startActivity(displayActivityIntent)
         }
 
         recycler.adapter = ImageAdapter(items, onClickListener)
@@ -73,3 +72,18 @@ class SelectionActivity : AppCompatActivity() {
     }
 
 }
+
+/*
+val image = findViewById<ImageView>(R.id.imageView)
+        val text = findViewById<TextView>(R.id.textView)
+
+        val message = intent.getStringExtra("description")
+        text.text = message
+
+        val bundle = intent.extras
+        val id = bundle?.getInt("ID")
+        if (id != null) {
+            image.setImageResource(id)
+        }
+        title = message
+*/

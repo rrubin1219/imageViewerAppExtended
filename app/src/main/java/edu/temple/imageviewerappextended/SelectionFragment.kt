@@ -6,41 +6,39 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class SelectionFragment : Fragment() {
    private lateinit var recycler: RecyclerView
    private lateinit var layout: View
+   private lateinit var items: Array<ImageObject>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        arguments?.let {  }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
         layout = inflater.inflate(R.layout.fragment_selection, container, false)
-
-        val items = getImages()
+        val imageViewModel = ViewModelProvider(requireActivity()).get(ImageViewModel::class.java)
 
         recycler = layout.findViewById(R.id.recyclerView)
+        items = getImages()
 
         val onClickListener = View.OnClickListener {
             val itemsPosition = recycler.getChildAdapterPosition(it)
-            //imageView.setImageResource(items[itemsPosition].id)
-            //textView.text = items[items]
-            (requireActivity() as Images).image(items[itemsPosition].id)
+            imageViewModel.setImage(items[itemsPosition].id)
         }
 
         recycler.apply {
-            layoutManager = GridLayoutManager(activity, 3)
+            layoutManager = GridLayoutManager(requireContext(), 3)
             adapter = ImageAdapter(items, onClickListener)
-
         }
         return layout
     }
-
-    fun image(){}
 
     private fun getImages(): Array<ImageObject>{
         return arrayOf(ImageObject(R.drawable.stalker),
@@ -61,7 +59,7 @@ class SelectionFragment : Fragment() {
          }
     }
 
-    interface Images{
-        fun image(position: Int)
+    interface Image{
+        fun onImageSelected(position: Int)
     }
 }

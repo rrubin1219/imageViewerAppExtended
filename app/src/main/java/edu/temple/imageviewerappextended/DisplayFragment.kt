@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-
+import androidx.lifecycle.ViewModelProvider
 
 class DisplayFragment : Fragment() {
     private lateinit var textView: TextView
@@ -16,6 +16,7 @@ class DisplayFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        arguments?.let {  }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -23,13 +24,16 @@ class DisplayFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_display, container, false)
     }
 
-    fun image(position: Int){
-        imageView = layout.findViewById(R.id.imageView)
-        imageView.setImageResource(position)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        ViewModelProvider(requireActivity()).get(ImageViewModel::class.java).getImage().observe(requireActivity(), { image(it) })
     }
 
-    companion object {
-        fun newInstance(param1: String, param2: String) = DisplayFragment().apply {
-        }
+    fun image(position: Int){
+        imageView = layout.findViewById(R.id.imageView)
+        textView = layout.findViewById(R.id.textView)
+
+        imageView.setImageResource(position)
+        textView.resources.getStringArray(position)
     }
 }

@@ -8,9 +8,8 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/selectionView"
-        android:name="edu.temple.imageviewerappextended.SelectionFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="404dp"
+        android:layout_height="421dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="4dp"
@@ -22,7 +21,6 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/displayView"
-        android:name="edu.temple.imageviewerappextended.DisplayFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"

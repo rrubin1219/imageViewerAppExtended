@@ -1,19 +1,46 @@
 package edu.temple.imageviewerappextended
 
-import ImageAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), SelectionFragment.Images {
+    lateinit var selectionFragment: SelectionFragment
+    lateinit var displayFragment: DisplayFragment
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         title = resources.getString(R.string.title)
 
+        selectionFragment = SelectionFragment.newInstance()
+        displayFragment = DisplayFragment()
+
+        supportFragmentManager.beginTransaction()
+            .add(R.id.selectionView, selectionFragment) //Adding Selection View
+            .add(R.id.displayView, displayFragment) //Adding Display View
+            .commit()
+
+
+
+    }
+    override fun image(position: Int) {
+    }
+}
+/*
+
+    private fun getImages(): Array<ImageObject>{
+        return arrayOf(ImageObject(R.drawable.stalker),
+            ImageObject(R.drawable.cuddles),
+            ImageObject(R.drawable.food_prep),
+            ImageObject(R.drawable.hide_n_seek),
+            ImageObject( R.drawable.laundry),
+            ImageObject(R.drawable.microwave),
+            ImageObject(R.drawable.shocked),
+            ImageObject( R.drawable.sleepy),
+            ImageObject(R.drawable.tunnel),
+            ImageObject( R.drawable.worker),
+        )
+    }
         val items = getImages()
         val recycler = findViewById<RecyclerView>(R.id.recyclerView)
 
@@ -71,7 +98,7 @@ class MainActivity : AppCompatActivity() {
         Log.d("Main activity state", "onDestroy() fired")
     }
 
-}
+}*/
 
 /*
 val image = findViewById<ImageView>(R.id.imageView)

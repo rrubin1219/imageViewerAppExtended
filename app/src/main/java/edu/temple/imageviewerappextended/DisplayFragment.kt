@@ -13,20 +13,21 @@ class DisplayFragment : Fragment() {
     private lateinit var textView: TextView
     private lateinit var imageView: ImageView
     private lateinit var layout: View
+    private var imageViewModel: ImageViewModel? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {  }
-    }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_display, container, false)
+        layout = inflater.inflate(R.layout.fragment_display, container, false)
+        return layout
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ViewModelProvider(requireActivity()).get(ImageViewModel::class.java).getImage().observe(requireActivity(), { image(it) })
+
+        imageViewModel = ViewModelProvider(requireActivity()).get(ImageViewModel::class.java)
+        imageViewModel!!.getImage().observe(requireActivity(), {})
+        imageViewModel!!.getText().observe(requireActivity(), {})
     }
 
     fun image(position: Int){

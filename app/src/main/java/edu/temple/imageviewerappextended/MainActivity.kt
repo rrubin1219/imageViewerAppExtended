@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity(), SelectionFragment.Image{
         setContentView(R.layout.activity_main)
         title = resources.getString(R.string.title)
 
+
         selectionFragment = SelectionFragment.newInstance()
         displayFragment = DisplayFragment()
 
@@ -21,7 +22,8 @@ class MainActivity : AppCompatActivity(), SelectionFragment.Image{
             .commit()
     }
 
-    override fun onImageSelected(position: Int) {
+    override fun imageSelected(position: Int) {
         displayFragment.image(position)
     }
+
 }

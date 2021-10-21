@@ -5,12 +5,20 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class ImageViewModel: ViewModel() {
-    private var image = MutableLiveData<Int>()
+    private val image = MutableLiveData<Int>()
+    private val text = MutableLiveData<String>()
 
     fun getImage() : LiveData<Int>{
         return image
     }
     fun setImage(_image: Int){
         image.value = _image
+    }
+
+    fun getText() : LiveData<String>{
+        return text
+    }
+    fun setText(_text: String){
+        text.value = _text
     }
 }
